@@ -10,6 +10,12 @@
             int player1 = 0;
 
             Console.WriteLine($"{start} and   {player1}");
+
+            //This is uc 2
+            
+            Random rnd = new Random();
+            int dice = rnd.Next(1, 7);
+            Console.WriteLine($"Number between 1 to 6 is : {dice}");
         }
     }
 }
