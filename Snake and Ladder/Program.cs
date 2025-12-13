@@ -14,16 +14,19 @@ namespace Snake_and_Ladder
 
             // this is uc 1
             int start = 0;
-            int player1 = 0;
 
-            Console.WriteLine($"Currently start is : {start} and player is :  {player1}");
+            // uc7 player 2
+            int start2 = 0;
 
             //This is uc 2
 
             Random rnd = new Random();
-            int dice = rnd.Next(1, 7);
+            int dice = 0;
+            int dice2 = 0; // uc 7
             int rolled = 1;  // uc 6 
-            Console.WriteLine($"Number between 1 to 6 is : {dice}");
+            int rolled2 = 1;
+            Console.WriteLine($"Dice of player 1  is : {dice}");
+            Console.WriteLine($"Dice of player 2  is : {dice2}");
 
             //This is uc 3
             //The Player then checks for a Option. They are No Play,
@@ -32,37 +35,26 @@ namespace Snake_and_Ladder
             //In Case of Snake the player moves behind by the UC 3 number of position received in the die
 
 
-            int option = rnd.Next(1, 4);
+            int option = 0;
+            int Option2 = 0;
             int noplay = 0;
             int ladder = 1;
             int snake = 2;
-
-            if (option == 1)
-            {
-                Console.WriteLine($"you got Ladderr now number currently is  : {start} and dice is : {dice} ");
-                start += dice;
-                Console.WriteLine($"Position after change is {start}");
-            }
-            else if (option == 2)
-            {
-                Console.WriteLine($"you Got ssnake now number currently is  : {start} and dice is : {dice} ");
-                start -= dice;
-                Console.WriteLine($"Position after change is {start}");
-            }
 
             //This is  uc 4
             //Repeat till the Player reaches the winning
             //position 100. - Note In case the player position moves below 0, then the player restarts from 0
 
-            while (start < 100)
+            while (start < 100 && start2 < 100)
             {
                 option = rnd.Next(1, 4);
                 dice = rnd.Next(1, 7);
-                Console.WriteLine($"Dice is rolled {rolled++} times. ");  //uc c rolled count increased every time
+                Console.WriteLine();
+                Console.WriteLine($"Player 1 Rolled the dice {rolled++} times. "); // uc 6 changed
 
-                if (option == 1)
+                while (option == 1)
                 {
-                    Console.WriteLine($"you got Ladder now number currently is  : {start} and dice is : +{dice} ");
+                    Console.WriteLine($"Player1 got Ladder now number currently is  : {start} and dice is : +{dice} ");
                     start += dice;
                     if (start > 100)   //uc5 Note in case the player position go above 100, the player stays in the same previous position till the player gets the exact number that adds to 100
                     {
@@ -70,16 +62,51 @@ namespace Snake_and_Ladder
                     }
                     else if (start == 100)
                     {
-                        Console.WriteLine("Player Got Exact Winning position 100 ");
+                        Console.WriteLine("Player 1  Got Exact Winning position 100 and won the game. ");
                     }
-                        Console.WriteLine($"Position after change is {start}");  // uc 6 finds positon every time
+                    Console.WriteLine($"Position after change is {start}");
+                    option = rnd.Next(1, 4);
+                    Console.WriteLine($"Dice is rolled {rolled++} times. ");
+                    rolled++;
                 }
-                else if (option == 2)
+                if (option == 2)
                 {
-                    Console.WriteLine($"you Got ssnake now number currently is  : {start} and dice is : -{dice} ");
+                    Console.WriteLine($"Player 1 Got ssnake now number currently is  : {start} and dice is : -{dice} ");
                     start -= dice;
                     Console.WriteLine($"Position after change is {start}");
                     if (start < 0) start = 0;
+                }
+
+                // uc 7 for player 2
+
+                Option2 = rnd.Next(1, 4);
+                dice2 = rnd.Next(1, 7);
+                Console.WriteLine();
+                Console.WriteLine($"Player 2 rolled dice {rolled2++} times. "); // uc 6 changed
+
+                while (Option2 == 1)
+                {
+                    Console.WriteLine($"Player2 got Ladder now number currently is  : {start2} and dice is : +{dice2} ");
+                    start2 += dice2;
+                    if (start2 > 100)   //uc5 Note in case the player position go above 100, the player stays in the same previous position till the player gets the exact number that adds to 100
+                    {
+                        start2 = start2 - dice2;
+                    }
+                    else if (start2 == 100)
+                    {
+                        Console.WriteLine("Player 2  Got Exact Winning position 100 and won the game. ");
+                    }
+                    Console.WriteLine($"Position after change is {start2}");
+                    Option2 = rnd.Next(1, 4);
+                    Console.WriteLine($"Dice is rolled {rolled2++} times. ");
+                    rolled2++;
+                }
+                if (Option2 == 2)
+                {
+                    Console.WriteLine($"Player 2 Got ssnake now number currently is  : {start2} and dice is : -{dice2} ");
+                    start2 -= dice2;
+                    Console.WriteLine($"Position after change is {start2}");
+                    if (start2 < 0) start2 = 0;
                 }
 
             }
