@@ -22,6 +22,7 @@ namespace Snake_and_Ladder
 
             Random rnd = new Random();
             int dice = rnd.Next(1, 7);
+            int rolled = 1;  // uc 6 
             Console.WriteLine($"Number between 1 to 6 is : {dice}");
 
             //This is uc 3
@@ -40,13 +41,13 @@ namespace Snake_and_Ladder
             {
                 Console.WriteLine($"you got Ladderr now number currently is  : {start} and dice is : {dice} ");
                 start += dice;
-                Console.WriteLine($"straeak after change is {start}");
+                Console.WriteLine($"Position after change is {start}");
             }
             else if (option == 2)
             {
                 Console.WriteLine($"you Got ssnake now number currently is  : {start} and dice is : {dice} ");
                 start -= dice;
-                Console.WriteLine($"streak after change is {start}");
+                Console.WriteLine($"Position after change is {start}");
             }
 
             //This is  uc 4
@@ -57,8 +58,7 @@ namespace Snake_and_Ladder
             {
                 option = rnd.Next(1, 4);
                 dice = rnd.Next(1, 7);
-
-                
+                Console.WriteLine($"Dice is rolled {rolled++} times. ");
 
                 if (option == 1)
                 {
@@ -72,13 +72,13 @@ namespace Snake_and_Ladder
                     {
                         Console.WriteLine("Player Got Exact Winning position 100 ");
                     }
-                        Console.WriteLine($"straeak after change is {start}");
+                        Console.WriteLine($"Position after change is {start}");
                 }
                 else if (option == 2)
                 {
                     Console.WriteLine($"you Got ssnake now number currently is  : {start} and dice is : -{dice} ");
                     start -= dice;
-                    Console.WriteLine($"streak after change is {start}");
+                    Console.WriteLine($"Position after change is {start}");
                     if (start < 0) start = 0;
                 }
 
