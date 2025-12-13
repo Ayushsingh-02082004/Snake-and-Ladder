@@ -53,7 +53,7 @@ namespace Snake_and_Ladder
             //Repeat till the Player reaches the winning
             //position 100. - Note In case the player position moves below 0, then the player restarts from 0
 
-            while (start <= 100)
+            while (start < 100)
             {
                 option = rnd.Next(1, 4);
                 dice = rnd.Next(1, 7);
@@ -62,13 +62,21 @@ namespace Snake_and_Ladder
 
                 if (option == 1)
                 {
-                    Console.WriteLine($"you got Ladderr now number currently is  : {start} and dice is : {dice} ");
+                    Console.WriteLine($"you got Ladderr now number currently is : {start} and dice is : +{dice} ");
                     start += dice;
-                    Console.WriteLine($"straeak after change is {start}");
+                    if (start > 100)
+                    {
+                        start = start - dice;
+                    }
+                    else if (start == 100)
+                    {
+                        Console.WriteLine("Player Got Exact Winning position 100 ");
+                    }
+                        Console.WriteLine($"straeak after change is {start}");
                 }
                 else if (option == 2)
                 {
-                    Console.WriteLine($"you Got ssnake now number currently is  : {start} and dice is : {dice} ");
+                    Console.WriteLine($"you Got ssnake now number currently is  : {start} and dice is : -{dice} ");
                     start -= dice;
                     Console.WriteLine($"streak after change is {start}");
                     if (start < 0) start = 0;
