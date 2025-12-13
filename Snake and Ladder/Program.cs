@@ -58,7 +58,7 @@ namespace Snake_and_Ladder
             {
                 option = rnd.Next(1, 4);
                 dice = rnd.Next(1, 7);
-                Console.WriteLine($"Dice is rolled {rolled++} times. ");
+                Console.WriteLine($"Dice is rolled {rolled++} times. ");  //uc c rolled count increased every time
 
                 if (option == 1)
                 {
@@ -72,7 +72,7 @@ namespace Snake_and_Ladder
                     {
                         Console.WriteLine("Player Got Exact Winning position 100 ");
                     }
-                        Console.WriteLine($"Position after change is {start}");
+                        Console.WriteLine($"Position after change is {start}");  // uc 6 finds positon every time
                 }
                 else if (option == 2)
                 {
