@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Numerics;
+using System.Reflection.Metadata;
 using System.Threading;
 using System.Xml.Linq;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -18,7 +19,7 @@ namespace Snake_and_Ladder
             Console.WriteLine($"Currently start is : {start} and player is :  {player1}");
 
             //This is uc 2
-            
+
             Random rnd = new Random();
             int dice = rnd.Next(1, 7);
             Console.WriteLine($"Number between 1 to 6 is : {dice}");
@@ -34,20 +35,46 @@ namespace Snake_and_Ladder
             int noplay = 0;
             int ladder = 1;
             int snake = 2;
-            
-            if(option == 1)
+
+            if (option == 1)
             {
                 Console.WriteLine($"you got Ladderr now number currently is  : {start} and dice is : {dice} ");
                 start += dice;
-                Console.WriteLine($"NUmber after change is {start}");
+                Console.WriteLine($"straeak after change is {start}");
             }
-            else if(option == 2)
+            else if (option == 2)
             {
                 Console.WriteLine($"you Got ssnake now number currently is  : {start} and dice is : {dice} ");
                 start -= dice;
-                Console.WriteLine($"no after change is {start}");
+                Console.WriteLine($"streak after change is {start}");
             }
 
+            //This is  uc 4
+            //Repeat till the Player reaches the winning
+            //position 100. - Note In case the player position moves below 0, then the player restarts from 0
+
+            while (start <= 100)
+            {
+                option = rnd.Next(1, 4);
+                dice = rnd.Next(1, 7);
+
+                
+
+                if (option == 1)
+                {
+                    Console.WriteLine($"you got Ladderr now number currently is  : {start} and dice is : {dice} ");
+                    start += dice;
+                    Console.WriteLine($"straeak after change is {start}");
+                }
+                else if (option == 2)
+                {
+                    Console.WriteLine($"you Got ssnake now number currently is  : {start} and dice is : {dice} ");
+                    start -= dice;
+                    Console.WriteLine($"streak after change is {start}");
+                    if (start < 0) start = 0;
+                }
+
+            }
 
         }
     }
