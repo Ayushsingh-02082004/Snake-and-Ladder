@@ -62,9 +62,9 @@ namespace Snake_and_Ladder
 
                 if (option == 1)
                 {
-                    Console.WriteLine($"you got Ladderr now number currently is : {start} and dice is : +{dice} ");
+                    Console.WriteLine($"you got Ladder now number currently is  : {start} and dice is : +{dice} ");
                     start += dice;
-                    if (start > 100)
+                    if (start > 100)   //uc5 Note in case the player position go above 100, the player stays in the same previous position till the player gets the exact number that adds to 100
                     {
                         start = start - dice;
                     }
